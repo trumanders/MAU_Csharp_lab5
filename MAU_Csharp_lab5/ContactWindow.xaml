@@ -1,0 +1,97 @@
+﻿<Window x:Class="MAU_Csharp_lab5.ContactWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MAU_Csharp_lab5"
+        mc:Ignorable="d"
+        Title="ContactWindow" Height="450" Width="350">
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+
+
+        <!-- ROW 1 - Name -->
+        <GroupBox Header="Name" Grid.Row="1" Grid.Column="1">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="First name" Width="75"/>
+                    <TextBox x:Name="tbx_firstName" HorizontalAlignment="Stretch" Width="180"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Last name" Width="75"/>
+                    <TextBox x:Name="tbx_lastName" Width="180"/>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- ROW 2 - Email and phone -->
+        <GroupBox Header="Email and phone" Grid.Row="2" Grid.Column="1">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Private phone" Width="75"/>
+                    <TextBox x:Name="tbx_privatePhone" Width="180"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Office phone" Width="75"/>
+                    <TextBox x:Name="tbx_officePhone" Width="180"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Private email" Width="75"/>
+                    <TextBox x:Name="tbx_privateEmail" Width="180"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Office email" Width="75"/>
+                    <TextBox x:Name="tbx_officeEmail" Width="180"/>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- ROW 3 - adress -->
+        <GroupBox Header="Adress" Grid.Row="3" Grid.Column="1">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Street" Width="75"/>
+                    <TextBox x:Name="tbx_street" Width="180"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="City" Width="75"/>
+                    <TextBox x:Name="tbx_city" Width="180"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Zip code" Width="75"/>
+                    <TextBox x:Name="tbx_zipCode" Width="180"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Country" Width="75"/>
+                    <ComboBox x:Name="cbx_country" Width="180"/>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- ROW 4 - buttons -->
+        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="1">
+            <Button x:Name="btn_ok" Content="OK" Width="80" Height="20" Margin="50,5,10,5" Click="btn_ok_click"/>
+            <Button x:Name="btn_cancel" Content="Cancel" Width="80" Height="20" Margin="10,5,20,5" Click="btn_cancel_click"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

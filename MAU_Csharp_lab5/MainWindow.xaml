@@ -5,19 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MAU_Csharp_lab5"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="800">
+        Title="Customer Registry by Anders Johansson" Height="600" Width="1000" 
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="35"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition MinWidth="400"/>
             <ColumnDefinition Width="10"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="10"/>
+            <RowDefinition Height="30"/>
             <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
+
+        <!-- ROW 1 - headers -->
+        <Label Content="ID" Grid.Row="1" Grid.Column="1" />
+        <Label Content="Name (Surname, first name)" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left"/>
+        <Label Content="Office phone" Grid.Row="1" Grid.Column="3"/>
+        <Label Content="Offive e-mail" Grid.Row="1" Grid.Column="4"/>
+        <Label x:Name="lbl_contactDetails" Content="Contact Details" Grid.Row="1" Grid.Column="5" HorizontalAlignment="Left" Margin="130,0,0,0"/>
+
+        <!-- ROW 2 - info output boxes -->
+        <ListBox x:Name="lbx_peopleList" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="5" Margin="0,0,5,0" FontFamily="Consolas" SelectionChanged="lbx_selected" Width="555" HorizontalAlignment="Left"/>
+        <Label x:Name="lbl_additionalInfo" Content="" Grid.Row="2" Grid.Column="5" BorderBrush="Black" BorderThickness="0.4" FontFamily="Consolas" Width="400" HorizontalAlignment="right"/>
+
+        <!-- ROW 3 - buttons -->
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4" Height="45" VerticalAlignment="Bottom" MinWidth="400">
+            <Button Content="Add" x:Name="btn_add" Click="btn_add_click" Width="100" Margin="30,10,0,10" />
+            <Button Content="Edit" x:Name="btn_edit" Click="btn_edit_click" Width="100" Margin="30,10,0,10" />
+            <Button Content="Delete" x:Name="btn_delete" Click=" btn_delete_click" Width="100" Margin="30,10,0,10" />
+        </StackPanel>
     </Grid>
 </Window>
