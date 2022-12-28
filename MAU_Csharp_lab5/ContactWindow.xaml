@@ -5,7 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MAU_Csharp_lab5"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="ContactWindow" Height="450" Width="350">
+    <!-- Set ViewModel -->
+    <Window.DataContext>
+        <local:ViewModel/>
+    </Window.DataContext>
     
     <Grid>
         <Grid.ColumnDefinitions>
@@ -19,6 +24,7 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
 
@@ -28,11 +34,11 @@
             <StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="First name" Width="75"/>
-                    <TextBox x:Name="tbx_firstName" HorizontalAlignment="Stretch" Width="180"/>
+                    <TextBox x:Name="tbx_firstName" HorizontalAlignment="Stretch" Width="180" TextChanged="tbx_firstName_changed"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Last name" Width="75"/>
-                    <TextBox x:Name="tbx_lastName" Width="180"/>
+                    <TextBox x:Name="tbx_lastName" Width="180" TextChanged="tbx_lastName_changed"/>
                 </StackPanel>
             </StackPanel>
         </GroupBox>
@@ -72,7 +78,7 @@
 
                 <StackPanel Orientation="Horizontal">
                     <Label Content="City" Width="75"/>
-                    <TextBox x:Name="tbx_city" Width="180"/>
+                    <TextBox x:Name="tbx_city" Width="180" TextChanged="tbx_city_changed"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal">
@@ -82,7 +88,7 @@
 
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Country" Width="75"/>
-                    <ComboBox x:Name="cbx_country" Width="180"/>
+                    <ComboBox x:Name="cbx_country" Width="180" ItemsSource="{Binding Countries}" SelectionChanged="cbx_country_SelectionChanged"/>
                 </StackPanel>
             </StackPanel>
         </GroupBox>
@@ -92,6 +98,9 @@
             <Button x:Name="btn_ok" Content="OK" Width="80" Height="20" Margin="50,5,10,5" Click="btn_ok_click"/>
             <Button x:Name="btn_cancel" Content="Cancel" Width="80" Height="20" Margin="10,5,20,5" Click="btn_cancel_click"/>
         </StackPanel>
+        
+        <!-- ROW 5 - text -->
+        <Label x:Name="lbl_warningText" Grid.Row="5" Grid.Column="1" Content="" HorizontalAlignment="Center" Foreground="Red" />
 
     </Grid>
 </Window>

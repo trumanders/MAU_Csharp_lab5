@@ -1,31 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MAU_Csharp_lab5.ContactData
+﻿public class Email
 {
-    public class Email
+    /// <summary>
+    /// This class contains the customer's emails.
+    /// </summary>
+    private string privateEmail;
+    private string officeEmail;
+
+    public string PrivateEmail { get { return privateEmail; } }
+    public string OfficeEmail { get { return officeEmail; } }
+
+    public Email(string privateEmail, string officeEmail)
     {
-        private string privateEmail;
-        private string officeEmail;
-
-        public Email(string privateEmail, string officeEmail)
-        {
-            this.privateEmail = privateEmail;
-            this.officeEmail = officeEmail;
-        }
-
-        public string GetPrivateEmail()
-        {
-            return privateEmail;
-        }
-
-
-        public string GetOfficeEmail()
-        {
-            return officeEmail;
-        }
+        this.privateEmail = privateEmail;
+        this.officeEmail = officeEmail;
     }
 }

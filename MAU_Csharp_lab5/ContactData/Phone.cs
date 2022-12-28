@@ -1,32 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Printing;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MAU_Csharp_lab5.ContactData
+﻿public class Phone
 {
-    public class Phone
+    /// <summary>
+    /// This class contains the customer's phone numbers
+    /// </summary>
+    private string privatePhone;
+    private string officePhone;
+
+    public string PrivatePhone { get { return privatePhone; } }
+    public string OfficePhone { get { return officePhone; } }
+
+    public Phone(string privatePhone, string officePhone)
     {
-        private string privatePhone;
-        private string officePhone;
-
-        public Phone(string privatePhone, string officePhone)
-        {
-            this.privatePhone = privatePhone;
-            this.officePhone = officePhone;
-        }
-
-        public string GetPrivatePhone()
-        {
-            return privatePhone;
-        }
-
-
-        public string GetOfficePhone()
-        {
-            return officePhone;
-        }
+        this.privatePhone = privatePhone;
+        this.officePhone = officePhone;
     }
 }

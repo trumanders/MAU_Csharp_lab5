@@ -1,7 +1,17 @@
-﻿
-public class CustomerManager
+﻿public class CustomerManager
 {
     private List<Customer> allCustomers = new List<Customer>();
+
+    /// <summary>
+    /// Check if the list of customers contains customers.
+    /// </summary>
+    /// <returns>Boolean that determines whether the list is empty or not. True = empty</returns>
+    public bool isCustomerListEmpty()
+    {
+        if (allCustomers.Count == 0)
+            return true;
+        return false;
+    }
 
 
     /// <summary>
@@ -24,6 +34,7 @@ public class CustomerManager
         allCustomers[index].SetContactInfo(ci);
     }
 
+
     /// <summary>
     /// Get one customer object from the list.
     /// </summary>
@@ -42,32 +53,40 @@ public class CustomerManager
     /// <returns>The customer information as a string.</returns>
     public string[] GetCustomerString()
     {
-        string[] customerString = new string[allCustomers.Count];
-        
+        string[] customerString = new string[allCustomers.Count];        
         for (int i = 0; i < allCustomers.Count; i++)
         {
             Customer c = allCustomers[i];
-            string names = allCustomers[i].GetContactInfo().GetLastName().ToUpper() + ", " + allCustomers[i].GetContactInfo().GetFirstName();
-            customerString[i] = $"{c.Id,-5}{names,-31}{c.GetContactInfo().GetPhone().GetOfficePhone(),-14}{c.GetContactInfo().GetEmail().GetOfficeEmail(),-15}";
+            string names = c.GetContactInfo().LastName.ToUpper() + ", " + c.GetContactInfo().FirstName;
+            customerString[i] = $"{c.Id,-5}{names,-31}{c.GetContactInfo().Phone.OfficePhone,-14}{c.GetContactInfo().Email.OfficeEmail,-15}";
         }
         return customerString;
     }
 
 
+    /// <summary>
+    /// Gather all info for a customer and return it as a formatted string.
+    /// </summary>
+    /// <param name="index">The integer representing the index of the
+    /// selected customer in the list.</param>
+    /// <returns>A formatted string containing all info on a customer to be displayd in the UI.</returns>
     public string GetAdditionalInfo(int index)
     {
-        Customer c = allCustomers[index];
-        string fullName = c.GetContactInfo().GetFirstName() + " " + c.GetContactInfo().GetLastName();
-        string street = c.GetContactInfo().GetAdress().Street;
-        string zipAndCity = c.GetContactInfo().GetAdress().Zip + " " + c.GetContactInfo().GetAdress().City;
-        string country = c.GetContactInfo().GetAdress().Country;
-        string emails = $"Emails\n Private\t{c.GetContactInfo().GetEmail().GetPrivateEmail()}\n Office\t\t{c.GetContactInfo().GetEmail().GetOfficeEmail()}";
-        string phones = $"Phone numbers\n Private\t{c.GetContactInfo().GetPhone().GetPrivatePhone()}\n Office\t\t{c.GetContactInfo().GetPhone().GetOfficePhone()}";
-
+        ContactInfo ci = allCustomers[index].GetContactInfo();        
+        string fullName = ci.FirstName + " " + ci.LastName;
+        string street = ci.Adress.Street;
+        string zipAndCity = ci.Adress.Zip + " " + ci.Adress.City;
+        string country = ci.Adress.Country;
+        string emails = $"Emails\n Private\t{ci.Email.PrivateEmail}\n Office\t\t{ci.Email.OfficeEmail}";
+        string phones = $"Phone numbers\n Private\t{ci.Phone.PrivatePhone}\n Office\t\t{ci.Phone.OfficePhone}";
         return $"{fullName}\n{street}\n{zipAndCity}\n{country}\n\n{emails}\n\n{phones}";
     }
 
 
+    /// <summary>
+    /// Delete one customer with the specified index.
+    /// </summary>
+    /// <param name="index">The index of the selected customer</param>
     public void DeleteCustomer(int index)
     {
         allCustomers.RemoveAt(index);

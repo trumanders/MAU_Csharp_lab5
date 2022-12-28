@@ -8,7 +8,8 @@
         Title="Customer Registry by Anders Johansson" Height="600" Width="1000" 
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
-    <Grid>
+
+        <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="35"/>
